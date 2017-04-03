@@ -4,11 +4,12 @@ defmodule Imagex.Imgur do
   def headers do
     %{
       "Content-type" => "application/json",
+      "Authorization" => "#{Application.get_env(:imagex, :imgur_client_id)}"
     }
   end
 
   def make_request(:get, url) do
-    get(url, headers)
+    get(url, headers())
   end
 
   def process_url(path), do: "https://api.imgur.com" <> path

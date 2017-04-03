@@ -17,3 +17,7 @@ config :imagex, Imagex.Repo,
   database: "imagex_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+import_config "prod.secret.exs"
+
+config :imagex, :imgur_mock_api, Imagex.ImgurMockApi
